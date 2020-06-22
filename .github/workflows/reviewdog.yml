@@ -1,5 +1,5 @@
 name: reviewdog
-on: [push]
+on: [pull_request]
 jobs:
   reviewdog:
     name: reviewdog
@@ -16,4 +16,4 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          reviewdog -reporter=github-check -runners=golangci-lint
+          reviewdog -reporter=github-pr-check -runners=golangci-lint
