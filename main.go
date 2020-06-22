@@ -29,7 +29,7 @@ func main() {
 	for _, u := range data {
 		// fmt.Println(u.Username, u.Password, basicAuth(u.Username, u.Password))
 
-		fmt.Println(fmt.Sprintf("#%d ", cnt))
+		fmt.Println(fmt.Sprintf("#%d", cnt))
 		fmt.Println("username: ", u.Username)
 		fmt.Println("password: ", u.Password)
 		fmt.Println("auth:     ", basicAuth(u.Username, u.Password))
