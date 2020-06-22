@@ -13,4 +13,4 @@ jobs:
           echo ::add-path::$(go env GOPATH)/bin # for Go projects
       - name: Run reviewdog
         run: |
-          reviewdog -reporter=github-check -runners=golangci-lint
+          reviewdog -f=golangci-lint -reporter=github-check -runners=golangci-lint
