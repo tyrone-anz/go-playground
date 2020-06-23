@@ -38,7 +38,7 @@ func main() {
 }
 
 func basicAuth(username, password string) string {
-	fmt.Println(fmt.Sprintf("#%s ", username))
+	fmt.Println(fmt.Sprintf("#%s dsadasdsa", username))
 	auth := username + ":" + password
 	return base64.StdEncoding.EncodeToString([]byte(auth))
 }
