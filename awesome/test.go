@@ -2,6 +2,10 @@ package awesome
 
 import "fmt"
 
+func Dummy() {
+	fmt.Println("dummy things")
+}
+
 func init() {
 	fmt.Println("init was run when imported")
 }
