@@ -9,9 +9,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Check diff
         run: |
-          STATIC_FILE_DIFF=$(git diff master --numstat --diff-filter=CDMRT static_files | cut -b 5-1000)
-          echo $STATIC_FILE_DIFF
-          if [ $STATIC_FILE_DIFF != "" ]
+          STATIC_FILE_DIFF=$(git diff $GITHUB_BASE_REF --numstat --diff-filter=CDMRT static_files | cut -b 5-1000)
+          echo "$STATIC_FILE_DIFF"
+          if [ "$STATIC_FILE_DIFF" != "" ]
             then
               echo "Static files were updated or deleted"
               exit 1
