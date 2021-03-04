@@ -1,4 +1,4 @@
-package awesome
+package static_files
 
 import "fmt"
 

@@ -1,0 +1,18 @@
+name: static_file_update
+on: [pull_request]
+jobs:
+  reviewdog:
+    name: static_file_update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check diff
+        run: |
+          STATIC_FILE_DIFF=git diff master --numstat --diff-filter=CDMRT static_files | cut -b 5-1000
+          echo $STATIC_FILE_DIFF
+          if [ $STATIC_FILE_DIFF != "" ]
+            then
+              echo "Static files were updated or deleted"
+              exit 1
+          fi
