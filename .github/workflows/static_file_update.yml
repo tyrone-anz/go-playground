@@ -8,7 +8,8 @@ jobs:
       - name: Checkout target
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.base_ref }}
+#          ref: ${{ github.base_ref }}
+          ref: master
       - name: Checkout branch
         uses: actions/checkout@v2
       - name: Check diff
