@@ -12,10 +12,13 @@ jobs:
 #          ref: master
       - name: Checkout branch
         uses: actions/checkout@v2
+#      - uses: actions/checkout@master
+#        with:
+#          ref: ${{ github.head_ref }}
       - name: Check diff
         run: |
           set -e -o pipefail
-          STATIC_FILE_DIFF=$(git diff $GITHUB_HEAD_REF...origin/$GITHUB_BASE_REF --numstat --diff-filter=CDMRT static_files | cut -b 5-1000)
+          (git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF) && STATIC_FILE_DIFF=$(git diff --numstat --diff-filter=CDMRT $GITHUB_BASE_REF -- static_files | cut -b 5-1000)
           echo "$STATIC_FILE_DIFF"
           if [ "$STATIC_FILE_DIFF" != "" ]
             then
