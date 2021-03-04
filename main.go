@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+    // safe changes
     // awesome.SaySomething()
     //
     // var b []byte
